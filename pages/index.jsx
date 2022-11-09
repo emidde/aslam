@@ -2,14 +2,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import {GiLion} from 'react-icons/gi'
 import {FaSpotify, FaYoutube} from 'react-icons/fa'
-import { gql, GraphQLClient } from 'graphql-request'
+import { gql } from '@apollo/client'
+import client from '../ApolloClient'
 
 
 export default function Home({aslams}) {
-
+console.log(aslams)
   return (
     <div className='container'>
-      
+
       <Head>
         <title>Célula Aslam</title>
         <meta name="description" content="Seja bem vindo a Célula Aslam" />
@@ -36,7 +37,7 @@ export default function Home({aslams}) {
         <div className='aligm-items justify-between'>
           <div >
             <div>
-                {aslams.map(({ i, title, slug, artista }) => (
+            {aslams.map(({ i, title, slug, artista }) => (
                   <Link className='block mb-4' key={i} href={`/louvor/${slug}`}>{title}
                   <div className='flex items-center justify-between'>
                   <small className='block mt-1 text-gray-500'>{artista}</small>
@@ -65,30 +66,21 @@ export default function Home({aslams}) {
 }
 
 export async function getStaticProps() {
-
-  const hygraph = new GraphQLClient(
-    'https://api-sa-east-1.hygraph.com/v2/cla7q578i1eud01uq4weybdlt/master'
-  );
-
-
-  const QUERY = gql`
-    {
-        aslams {
-          title
-          artista
-          slug
-          louvor {
-            html
-          }
-        }
+  const {data} = await client.query({
+    query: gql`
+    query {
+      aslams {
+        title
+        artista
+        slug
       }
-  `
-
-  const {aslams} = await hygraph.request(QUERY)
-
-  return {
-    props: {
-      aslams,
-    }
+    }`
+  })
+const {aslams} = data;
+console.log(aslams);
+return {
+  props: {
+    aslams
   }
+}
 }
