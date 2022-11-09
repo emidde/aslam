@@ -38,7 +38,7 @@ console.log(aslams)
           <div >
             <div>
             {aslams.map(({ i, title, slug, artista }) => (
-                  <Link className='block mb-4' key={i} href={`/louvor/${slug}`}>{title}
+                  <Link className='block mb-4 text-white' key={i} href={`/louvor/${slug}`}>{title}
                   <div className='flex items-center justify-between'>
                   <small className='block mt-1 text-gray-500'>{artista}</small>
                   <small>Ver a letra</small>
@@ -57,7 +57,7 @@ console.log(aslams)
         <small className='text-gray-500'>Não se preocupe, você vai estar anônimo</small>
       </div>
       <form action="" className='mt-4'>
-        <input className='p-4 rounded-lg w-full' type="text" name="" placeholder='Digite aqui' id="" />
+        <input className='p-4 rounded-lg w-full bg-gray-800' type="text" name="" placeholder='Digite aqui' id="" />
         <button className='p-2 bg-blue-500 rounded-lg mt-4 w-2/6'>Enviar</button>
       </form>
       </footer>
