@@ -38,13 +38,21 @@ console.log(aslams)
         <div className='aligm-items justify-between'>
           <div >
             <div>
-            {aslams.map(({ i, title, slug, artista }) => (
-                  <Link className='block mb-4 text-white' key={i} href={`/louvor/${slug}`}>{title}
+            {aslams.map(({ i, title, slug, artista, spotify, youtube }) => (
+                  <div className='mt-6'>
                   <div className='flex items-center justify-between'>
-                  <small className='block mt-1 text-gray-500'>{artista}</small>
-                  <small>Ver a letra</small>
+                  <h1>{title}</h1>
+                  <div className='flex items-center gap-x-3'>
+                    <Link href={`${spotify}`}><FaSpotify color='green' size={20} /></Link>
+                    <Link href={`${youtube}`}><FaYoutube color='red' size={20} /></Link>
                   </div>
-                  </Link>
+                  </div>
+                  <div className='flex mt-1 items-center gap-x-10'>
+                  <small className='block text-gray-500'>{artista}</small>
+                  <Link className='block text-white' key={i} href={`/louvor/${slug}`}><small>Ver a letra</small></Link>
+                  </div>
+                  </div>
+                  
                   
                     ))}
             </div>
@@ -74,6 +82,8 @@ export async function getStaticProps() {
         title
         artista
         slug
+        spotify
+        youtube
       }
     }`
   })
