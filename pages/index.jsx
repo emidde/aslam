@@ -39,7 +39,7 @@ export default function Home({aslams}) {
           <div >
             <div>
             {aslams.map(({ i, title, slug, artista, spotify, youtube }) => (
-                  <div className='mt-6'>
+                  <div className='mt-4'>
                   <div className='flex items-center justify-between'>
                     <h1 className='font-semibold'>{title}</h1>
                     <div className='flex items-center gap-x-5'>
