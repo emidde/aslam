@@ -27,7 +27,6 @@ export default function Home({aslams}) {
     </h1>
       </div>
       <div>
-        <Lion />
       </div>
       </div>
       <div className='mt-4 bg-blue-500 rounded-lg px-4 py-4'>
@@ -47,8 +46,8 @@ export default function Home({aslams}) {
                   <div className='flex items-center justify-between'>
                     <h1 className='font-semibold'>{title}</h1>
                     <div className='flex items-center gap-x-5'>
-                      <Link href={`${spotify}`}><Spotify /></Link>
-                      <Link href={`${youtube}`}><Youtube /></Link>
+                      <Link href={`${spotify}`}><FaSpotify /></Link>
+                      <Link href={`${youtube}`}><FaYoutube /></Link>
                     </div>
                   </div>  
                   <div className='flex items-center gap-x-5'>

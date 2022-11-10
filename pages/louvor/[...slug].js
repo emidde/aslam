@@ -7,7 +7,6 @@ import WaveLine from '../../animations/waveLIne';
 const LouvorPage = ({aslam}) => {
   return (
     <div className='container  mt-6'>
-      <WaveLine />
       <div className='flex mt-6 justify-between items-center'>
       <h1 className='font-bold text-3xl'>{aslam.title}</h1>
       <Link className='bg-blue-600 p-2 text-center rounded-lg w-2/12' href="/">
