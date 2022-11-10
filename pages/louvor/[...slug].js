@@ -2,11 +2,13 @@ import React from 'react'
 import client from '../../ApolloClient';
 import { gql } from '@apollo/client';
 import Link from 'next/link';
+import WaveLine from '../../animations/waveLIne';
 
 const LouvorPage = ({aslam}) => {
   return (
-    <div className='container  mt-4'>
-      <div className='flex justify-between items-center'>
+    <div className='container  mt-6'>
+      <WaveLine />
+      <div className='flex mt-6 justify-between items-center'>
       <h1 className='font-bold text-3xl'>{aslam.title}</h1>
       <Link className='bg-blue-600 p-2 text-center rounded-lg w-2/12' href="/">
       <button>Voltar</button>
