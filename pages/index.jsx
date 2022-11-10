@@ -4,10 +4,7 @@ import {GiLion} from 'react-icons/gi'
 import {FaSpotify, FaYoutube} from 'react-icons/fa'
 import { gql } from '@apollo/client'
 import client from '../ApolloClient'
-import MyModal from './components/popup'
-import Lion from '../animations/lion'
-import Spotify from '../animations/spotify'
-import Youtube from '../animations/youtube'
+
 
 
 export default function Home({aslams}) {
@@ -46,8 +43,8 @@ export default function Home({aslams}) {
                   <div className='flex items-center justify-between'>
                     <h1 className='font-semibold'>{title}</h1>
                     <div className='flex items-center gap-x-5'>
-                      <Link href={`${spotify}`}><FaSpotify /></Link>
-                      <Link href={`${youtube}`}><FaYoutube /></Link>
+                      <Link href={`${spotify}`}><FaSpotify color='green' size={20} /></Link>
+                      <Link href={`${youtube}`}><FaYoutube color='red' size={20} /></Link>
                     </div>
                   </div>  
                   <div className='flex items-center gap-x-5'>

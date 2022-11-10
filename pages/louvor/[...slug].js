@@ -2,7 +2,6 @@ import React from 'react'
 import client from '../../ApolloClient';
 import { gql } from '@apollo/client';
 import Link from 'next/link';
-import WaveLine from '../../animations/waveLIne';
 
 const LouvorPage = ({aslam}) => {
   return (
