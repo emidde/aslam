@@ -4,10 +4,11 @@ import {GiLion} from 'react-icons/gi'
 import {FaSpotify, FaYoutube} from 'react-icons/fa'
 import { gql } from '@apollo/client'
 import client from '../ApolloClient'
-
+import MyModal from './components/popup'
 
 
 export default function Home({aslams}) {
+console.log(aslams)
   return (
     <div className='container'>
 
@@ -24,35 +25,26 @@ export default function Home({aslams}) {
     </h1>
       </div>
       <div>
+      <GiLion size={40} color='lightskyblue' />
       </div>
       </div>
       <div className='mt-4 bg-blue-500 rounded-lg px-4 py-4'>
         <h2 className='text-center font-bold'>Avisos da semana</h2>
       </div>
-      <div className='mt-8'>
-        <div>
+      <div className='mt-6'>
         <h1 className='text-2xl font-bold'>Louvores</h1>
-        </div>
       </div>
       <div className='mt-4'>
         <div className='aligm-items justify-between'>
           <div >
             <div>
-            {aslams.map(({ i, title, slug, artista, spotify, youtube }) => (
-                  <div className='mt-4'>
+            {aslams.map(({ i, title, slug, artista }) => (
+                  <Link className='block mb-4 text-white' key={i} href={`/louvor/${slug}`}>{title}
                   <div className='flex items-center justify-between'>
-                    <h1 className='font-semibold'>{title}</h1>
-                    <div className='flex items-center gap-x-5'>
-                      <Link href={`${spotify}`}><FaSpotify color='green' size={20} /></Link>
-                      <Link href={`${youtube}`}><FaYoutube color='red' size={20} /></Link>
-                    </div>
-                  </div>  
-                  <div className='flex items-center gap-x-5'>
                   <small className='block mt-1 text-gray-500'>{artista}</small>
-                  <Link className='block text-blue-300' key={i} href={`/louvor/${slug}`}><small>Ver a letra</small></Link>
+                  <small>Ver a letra</small>
                   </div>
-                  </div>
-                  
+                  </Link>
                   
                     ))}
             </div>
@@ -82,8 +74,6 @@ export async function getStaticProps() {
         title
         artista
         slug
-        spotify
-        youtube
       }
     }`
   })
